@@ -36,9 +36,9 @@
  * Author: Christoph Rösmann
  *********************************************************************/
 
-#include <teb_local_planner/teb_config.h>
+#include <my_teb_local_planner/teb_config.h>
 
-namespace teb_local_planner
+namespace my_teb_local_planner
 {
     
 void TebConfig::loadRosParamFromNodeHandle(const ros::NodeHandle& nh)
@@ -394,4 +394,4 @@ void TebConfig::checkDeprecated(const ros::NodeHandle& nh) const
     ROS_WARN("TebLocalPlannerROS() Param Warning: 'global_plan_via_point_sep' is deprecated. It has been replaced by 'global_plan_viapoint_sep' due to consistency reasons.");
 }
     
-} // namespace teb_local_planner
+} // namespace my_teb_local_planner

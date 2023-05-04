@@ -36,7 +36,7 @@
  * Author: Christoph Rösmann
  *********************************************************************/
 
-#include <teb_local_planner/teb_local_planner_ros.h>
+#include <my_teb_local_planner/teb_local_planner_ros.h>
 
 #include <tf2_eigen/tf2_eigen.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
@@ -59,10 +59,10 @@
 
 
 // register this planner both as a BaseLocalPlanner and as a MBF's CostmapController plugin
-PLUGINLIB_EXPORT_CLASS(teb_local_planner::TebLocalPlannerROS, nav_core::BaseLocalPlanner)
-PLUGINLIB_EXPORT_CLASS(teb_local_planner::TebLocalPlannerROS, mbf_costmap_core::CostmapController)
+PLUGINLIB_EXPORT_CLASS(my_teb_local_planner::TebLocalPlannerROS, nav_core::BaseLocalPlanner)
+PLUGINLIB_EXPORT_CLASS(my_teb_local_planner::TebLocalPlannerROS, mbf_costmap_core::CostmapController)
 
-namespace teb_local_planner
+namespace my_teb_local_planner
 {
   
 
@@ -187,11 +187,11 @@ void TebLocalPlannerROS::initialize(std::string name, tf2_ros::Buffer* tf, costm
     // set initialized flag
     initialized_ = true;
 
-    ROS_DEBUG("teb_local_planner plugin initialized.");
+    ROS_DEBUG("my_teb_local_planner plugin initialized.");
   }
   else
   {
-    ROS_WARN("teb_local_planner has already been initialized, doing nothing.");
+    ROS_WARN("my_teb_local_planner has already been initialized, doing nothing.");
   }
 }
 
@@ -202,7 +202,7 @@ bool TebLocalPlannerROS::setPlan(const std::vector<geometry_msgs::PoseStamped>& 
   // check if plugin is initialized
   if(!initialized_)
   {
-    ROS_ERROR("teb_local_planner has not been initialized, please call initialize() before using this planner");
+    ROS_ERROR("my_teb_local_planner has not been initialized, please call initialize() before using this planner");
     return false;
   }
 
@@ -238,8 +238,8 @@ uint32_t TebLocalPlannerROS::computeVelocityCommands(const geometry_msgs::PoseSt
   // check if plugin initialized
   if(!initialized_)
   {
-    ROS_ERROR("teb_local_planner has not been initialized, please call initialize() before using this planner");
-    message = "teb_local_planner has not been initialized";
+    ROS_ERROR("my_teb_local_planner has not been initialized, please call initialize() before using this planner");
+    message = "my_teb_local_planner has not been initialized";
     return mbf_msgs::ExePathResult::NOT_INITIALIZED;
   }
 
@@ -358,12 +358,12 @@ uint32_t TebLocalPlannerROS::computeVelocityCommands(const geometry_msgs::PoseSt
   if (!success)
   {
     planner_->clearPlanner(); // force reinitialization for next time
-    ROS_WARN("teb_local_planner was not able to obtain a local plan for the current setting.");
+    ROS_WARN("my_teb_local_planner was not able to obtain a local plan for the current setting.");
     
     ++no_infeasible_plans_; // increase number of infeasible solutions in a row
     time_last_infeasible_plan_ = ros::Time::now();
     last_cmd_ = cmd_vel.twist;
-    message = "teb_local_planner was not able to obtain a local plan";
+    message = "my_teb_local_planner was not able to obtain a local plan";
     return mbf_msgs::ExePathResult::NO_VALID_CMD;
   }
 
@@ -402,7 +402,7 @@ uint32_t TebLocalPlannerROS::computeVelocityCommands(const geometry_msgs::PoseSt
     ++no_infeasible_plans_; // increase number of infeasible solutions in a row
     time_last_infeasible_plan_ = ros::Time::now();
     last_cmd_ = cmd_vel.twist;
-    message = "teb_local_planner trajectory is not feasible";
+    message = "my_teb_local_planner trajectory is not feasible";
     return mbf_msgs::ExePathResult::NO_VALID_CMD;
   }
 
@@ -415,7 +415,7 @@ uint32_t TebLocalPlannerROS::computeVelocityCommands(const geometry_msgs::PoseSt
     ++no_infeasible_plans_; // increase number of infeasible solutions in a row
     time_last_infeasible_plan_ = ros::Time::now();
     last_cmd_ = cmd_vel.twist;
-    message = "teb_local_planner velocity command invalid";
+    message = "my_teb_local_planner velocity command invalid";
     return mbf_msgs::ExePathResult::NO_VALID_CMD;
   }
   
@@ -439,7 +439,7 @@ uint32_t TebLocalPlannerROS::computeVelocityCommands(const geometry_msgs::PoseSt
       ROS_WARN("TebLocalPlannerROS: Resulting steering angle is not finite. Resetting planner...");
       ++no_infeasible_plans_; // increase number of infeasible solutions in a row
       time_last_infeasible_plan_ = ros::Time::now();
-      message = "teb_local_planner steering angle is not finite";
+      message = "my_teb_local_planner steering angle is not finite";
       return mbf_msgs::ExePathResult::NO_VALID_CMD;
     }
   }
@@ -1213,6 +1213,6 @@ double TebLocalPlannerROS::getNumberFromXMLRPC(XmlRpc::XmlRpcValue& value, const
    return value.getType() == XmlRpc::XmlRpcValue::TypeInt ? (int)(value) : (double)(value);
 }
 
-} // end namespace teb_local_planner
+} // end namespace my_teb_local_planner
 
 

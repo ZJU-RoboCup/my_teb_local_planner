@@ -1,5 +1,5 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package teb_local_planner
+Changelog for package my_teb_local_planner
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 0.9.1 (2020-05-29)
@@ -34,12 +34,12 @@ Changelog for package teb_local_planner
 * Robustify initTrajectoryToGoal if a plan is given (thanks to Rainer Kuemmerle)
 * Adding the option to shift ahead the target pose used to extract the velocity command (thanks to Marco Bassa)
 * Fixed segfault in optimal_planner.cpp when clearing graph with unallocated optimizer.
-  Fixes `#158 <https://github.com/rst-tu-dortmund/teb_local_planner/issues/158>`_.
+  Fixes `#158 <https://github.com/rst-tu-dortmund/my_teb_local_planner/issues/158>`_.
 * On footprintCost, fail only if footprint is in collision, not outside the map or on unknown space (thanks to corot)
 * Native MoveBaseFlex support added: Implements both nav_core::BaseLocalPlanner and mbf_costmap_core::CostmapController abstract interfaces (thanks to corot)
 * added warning if parameter optimal_time is <= 0
 * Nonlinear obstacle cost from EdgeInflatedObstacle also added to EdgeObstacle.
-  See `#140 <https://github.com/rst-tu-dortmund/teb_local_planner/issues/140>`_.
+  See `#140 <https://github.com/rst-tu-dortmund/my_teb_local_planner/issues/140>`_.
 * Fixed proper initialization of parameter obstacle_cost_exponent in case it is not loaded from the parameter server
 * Contributors: Christoph Rösmann, Marco Bassa, Rainer Kuemmerle, Victor Lopez, corot, dtaranta
 
@@ -77,7 +77,7 @@ Changelog for package teb_local_planner
 
 0.8.1 (2018-08-14)
 ------------------
-* bugfix in calculateHSignature. Fixes `#90 <https://github.com/rst-tu-dortmund/teb_local_planner/issues/90>`_.
+* bugfix in calculateHSignature. Fixes `#90 <https://github.com/rst-tu-dortmund/my_teb_local_planner/issues/90>`_.
 * fixed centroid computation in a special case of polygon-obstacles
 * Contributors: Christoph Rösmann
 
@@ -140,7 +140,7 @@ Changelog for package teb_local_planner
   Note, this feature is still experimental and subject to testing.
   Motion prediction is performed using a constant velocity model.
   Dynamic obstacles might be incorporated as follows:
-  * via a custom message provided on topic ~/obstacles (warning: we changed the message type from teb_local_planner/ObstacleMsg to costmap_converter/ObstacleArrayMsg).
+  * via a custom message provided on topic ~/obstacles (warning: we changed the message type from my_teb_local_planner/ObstacleMsg to costmap_converter/ObstacleArrayMsg).
   * via the CostmapToDynamicObstacles plugin as part of the costmap\_converter package (still experimental).
   A tutorial is going to be provided soon.
 * FeedbackMsg includes a ObstacleMsg instead of a polygon
@@ -203,9 +203,9 @@ Changelog for package teb_local_planner
 * Changed H-Signature computation to work 'again' with few obstacles such like 1 or 2
 * Removed inline flags in visualization.cpp
 * Removed inline flags in timed_elastic_band.cpp.
-  Fixes `#15 <https://github.com/rst-tu-dortmund/teb_local_planner/issues/15>`_.
+  Fixes `#15 <https://github.com/rst-tu-dortmund/my_teb_local_planner/issues/15>`_.
 * Increased bounds of many variables in dynamic_reconfigure. 
-  Resolves `#14 <https://github.com/rst-tu-dortmund/teb_local_planner/issues/14>`_.
+  Resolves `#14 <https://github.com/rst-tu-dortmund/my_teb_local_planner/issues/14>`_.
   The particular variables are maximum velocities, maximum accelerations,
   minimum turning radius,...
   Note: optimization weights and dt_ref as well as dt_hyst are not
@@ -234,7 +234,7 @@ Changelog for package teb_local_planner
 * The initial velocity of the robot is now taken into account correctly for
   all candidate trajectories.
 * Removed a check in which the last remaining candidate trajectory was rejected if it was close to an obstacle.
-  This fix addresses issue `#7 <https://github.com/rst-tu-dortmund/teb_local_planner/issues/7>`_
+  This fix addresses issue `#7 <https://github.com/rst-tu-dortmund/my_teb_local_planner/issues/7>`_
 
 0.6.1 (2016-05-23)
 ------------------
@@ -261,11 +261,11 @@ Changelog for package teb_local_planner
 
 0.4.0 (2016-04-19)
 ------------------
-* The teb_local_planner supports a path-following mode (w.r.t. the global plan) and via-points now.
+* The my_teb_local_planner supports a path-following mode (w.r.t. the global plan) and via-points now.
   This allows the user to adapt the tradeoff between time-optimality and path-following.
   Check out the new tutorial: "Following the Global Plan (Via-Points)".
 * All external configuration and launch files are removed, since they are part
-  of the new teb_local_planner_tutorials package.
+  of the new my_teb_local_planner_tutorials package.
 
 
 0.3.1 (2016-04-14)
@@ -347,7 +347,7 @@ Changelog for package teb_local_planner
 
 0.2.0 (2015-12-23)
 ------------------
-* The teb_local_planner supports costmap_converter plugins (pluginlib) from now on. Those plugins convert occupied costmap2d cells into polygon shapes.
+* The my_teb_local_planner supports costmap_converter plugins (pluginlib) from now on. Those plugins convert occupied costmap2d cells into polygon shapes.
   The costmap_converter is disabled by default, since the extension still needs to be tested (parameter choices, computation time advantages, etc.). 
   A tutorial will explain how to activate the converter using the ros-param server.
 

@@ -36,7 +36,7 @@
  * Author: Christoph Rösmann
  *********************************************************************/
 
-#include <teb_local_planner/teb_local_planner_ros.h>
+#include <my_teb_local_planner/teb_local_planner_ros.h>
 
 #include <interactive_markers/interactive_marker_server.h>
 #include <visualization_msgs/Marker.h>
@@ -45,7 +45,7 @@
 #include <boost/make_shared.hpp>
 
 
-using namespace teb_local_planner; // it is ok here to import everything for testing purposes
+using namespace my_teb_local_planner; // it is ok here to import everything for testing purposes
 
 // ============= Global Variables ================
 // Ok global variables are bad, but here we only have a simple testing node.

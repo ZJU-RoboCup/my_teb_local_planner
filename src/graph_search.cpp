@@ -36,10 +36,10 @@
  * Authors: Christoph Rösmann, Franz Albers
  *********************************************************************/
 
-#include <teb_local_planner/graph_search.h>
-#include <teb_local_planner/homotopy_class_planner.h>
+#include <my_teb_local_planner/graph_search.h>
+#include <my_teb_local_planner/homotopy_class_planner.h>
 
-namespace teb_local_planner
+namespace my_teb_local_planner
 {
 
 void GraphSearchInterface::DepthFirst(HcGraph& g, std::vector<HcGraphVertexType>& visited, const HcGraphVertexType& goal, double start_orientation,

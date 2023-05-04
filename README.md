@@ -1,14 +1,14 @@
-teb_local_planner ROS Package
+my_teb_local_planner ROS Package
 =============================
 
-The teb_local_planner package implements a plugin to the base_local_planner of the 2D navigation stack. 
+The my_teb_local_planner package implements a plugin to the base_local_planner of the 2D navigation stack. 
 The underlying method called Timed Elastic Band locally optimizes the robot's trajectory with respect to trajectory execution time, 
 separation from obstacles and compliance with kinodynamic constraints at runtime.
 
-Refer to http://wiki.ros.org/teb_local_planner for more information and tutorials.
+Refer to http://wiki.ros.org/my_teb_local_planner for more information and tutorials.
 
 Build status of the *melodic-devel* branch:
-- ROS Buildfarm (Melodic): [![Melodic Status](http://build.ros.org/buildStatus/icon?job=Mdev__teb_local_planner__ubuntu_bionic_amd64)](http://build.ros.org/job/Mdev__teb_local_planner__ubuntu_bionic_amd64/)
+- ROS Buildfarm (Melodic): [![Melodic Status](http://build.ros.org/buildStatus/icon?job=Mdev__my_teb_local_planner__ubuntu_bionic_amd64)](http://build.ros.org/job/Mdev__my_teb_local_planner__ubuntu_bionic_amd64/)
 
 
 ## Citing the Software
@@ -30,13 +30,13 @@ Some spoken explanations are included in the audio track of the video.
 The right one demonstrates features introduced in version 0.2 (supporting car-like robots and costmap conversion). Please watch the left one first.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=e1Bw6JOgHME" target="_blank"><img src="http://img.youtube.com/vi/e1Bw6JOgHME/0.jpg" 
-alt="teb_local_planner - An Optimal Trajectory Planner for Mobile Robots" width="240" height="180" border="10" /></a>
+alt="my_teb_local_planner - An Optimal Trajectory Planner for Mobile Robots" width="240" height="180" border="10" /></a>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=o5wnRCzdUMo" target="_blank"><img src="http://img.youtube.com/vi/o5wnRCzdUMo/0.jpg" 
-alt="teb_local_planner - Car-like Robots and Costmap Conversion" width="240" height="180" border="10" /></a>
+alt="my_teb_local_planner - Car-like Robots and Costmap Conversion" width="240" height="180" border="10" /></a>
 
 ## License
 
-The *teb_local_planner* package is licensed under the BSD license.
+The *my_teb_local_planner* package is licensed under the BSD license.
 It depends on other ROS packages, which are listed in the package.xml. They are also BSD licensed.
 
 Some third-party dependencies are included that are licensed under different terms:
@@ -51,6 +51,6 @@ All packages included are distributed in the hope that they will be useful, but 
 
 Install dependencies (listed in the *package.xml* and *CMakeLists.txt* file) using *rosdep*:
 
-    rosdep install teb_local_planner
+    rosdep install my_teb_local_planner
 
 
